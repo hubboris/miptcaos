@@ -30,7 +30,7 @@ git clone git@github.com:username/repo_name.git destination
 3. Добавьте &laquo;upstream&raquo; &ndash; ссылку на этот шаблон‑репозиторий:
 ```bash
 git remote add upstream \
-  git@github.com:boralytix/caos.git
+  git@github.com:hubboris/miptcaos.git
 ```
 
 4. Когда будут внесены изменения в оригинальный шаблон, внутри локального клона делаем:
