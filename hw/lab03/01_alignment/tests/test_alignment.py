@@ -4,25 +4,18 @@ import pytest
 
 # Директория самой задачи (на уровень выше директории tests)
 TASK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SOURCE = os.path.join(TASK_DIR, "solution.c")
 BINARY = os.path.join(TASK_DIR, "solution")
 
 
 @pytest.fixture(scope="module", autouse=True)
 def build():
-    """Компиляция решения до тестов и удаление бинарного файла после."""
-    if os.path.exists(BINARY):
-        os.remove(BINARY)
-    res = subprocess.run(
-        ["gcc", "-Wall", "-Wextra", "-o", BINARY, SOURCE],
-        cwd=TASK_DIR,
-        capture_output=True,
-        text=True,
-    )
-    assert res.returncode == 0, f"Компиляция solution.c не удалась:\n{res.stderr}"
+    """Сборка решения через make до тестов и очистка после."""
+    subprocess.run(["make", "clean"], cwd=TASK_DIR, capture_output=True)
+    res = subprocess.run(["make"], cwd=TASK_DIR, capture_output=True, text=True)
+    assert res.returncode == 0, f"Команда make завершилась с ошибкой:\n{res.stderr}"
+    assert os.path.exists(BINARY), "Исполняемый файл solution не найден в корне задачи"
     yield
-    if os.path.exists(BINARY):
-        os.remove(BINARY)
+    subprocess.run(["make", "clean"], cwd=TASK_DIR, capture_output=True)
 
 
 def run(addr, align):
