@@ -15,3 +15,5 @@
 [3. Обратный порядок байт](./03_byte_swap/README.md)
 
 [4. Упрощённый аналог wc](./04_wc/README.md)
+
+[5. Эмулятор регистра флагов](../../../../Documents/Yandex.Disk.localized/Documents/МФТИ/Основы%20IT-технологий/repo/hw/lab03/05_flags/README.md)
