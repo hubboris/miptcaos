@@ -11,3 +11,5 @@
 [1. Выравнивание адреса](./01_alignment/README.md)
 
 [2. Переполнение при умножении](./02_overflow_mul/README.md)
+
+[3. Обратный порядок байт](./03_byte_swap/README.md)
