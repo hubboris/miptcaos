@@ -16,6 +16,6 @@
 
 [4. Упрощённый аналог wc](./04_wc/README.md)
 
-[5. Эмулятор регистра флагов](../../../../Documents/Yandex.Disk.localized/Documents/МФТИ/Основы%20IT-технологий/repo/hw/lab03/05_flags/README.md)
+[5. Эмулятор регистра флагов](./05_flags/README.md)
 
 [6. НДС в копейках](./06_vat/README.md)
