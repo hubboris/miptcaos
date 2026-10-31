@@ -249,3 +249,38 @@ jobs:
       - name: Test
         working-directory: hw/lab03/03_byte_swap
         run: pytest tests -v
+
+  lab03-wc:
+    name: "Lab 03: 04 – Simple wc"
+    runs-on: ubuntu-latest
+    needs:
+      - lab02-separate-compilation
+      - lab02-auto-deps
+      - lab02-debug-release
+      - lab02-cmake-flags-version
+      - lab02-googletest
+    if: ${{ always() }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Build
+        working-directory: hw/lab03/04_wc
+        run: make
+
+      - name: Test
+        working-directory: hw/lab03/04_wc
+        run: pytest tests -v
