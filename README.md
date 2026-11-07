@@ -60,6 +60,8 @@ git push origin main
 
 ### [Задание 3. Основы C (23:59 7 ноября 2026 года)](hw/lab03/README.md)
 
+### [Задание 4. Указатели, динамическая память, C-строки ((23:59 14 ноября 2026 года))](hw/lab04/README.md)
+
 ## Quizzes
 
 [Quiz 1 (23:59 16 октября 2026 года)](https://forms.gle/Aoo61yMoQTFwqnZP7)
