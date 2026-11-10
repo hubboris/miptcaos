@@ -428,3 +428,39 @@ jobs:
       - name: Test
         working-directory: hw/lab04/02_strcmp
         run: pytest tests -v
+
+  lab04-swap-pairs:
+    name: "Lab 04: 03 – Swap Adjacent Pairs"
+    runs-on: ubuntu-latest
+    needs:
+      - lab03-alignment
+      - lab03-overflow-mul
+      - lab03-byte-swap
+      - lab03-wc
+      - lab03-flags
+      - lab03-vat
+    if: ${{ always() }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Build
+        working-directory: hw/lab04/03_swap_pairs
+        run: make
+
+      - name: Test
+        working-directory: hw/lab04/03_swap_pairs
+        run: pytest tests -v
